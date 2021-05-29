@@ -1,0 +1,8 @@
+{{ form_start(form) }}
+{% for flash_message in app.session.flashbag.get('mensaje') %}
+                    <div class="alert alert-danger alert-dismissible fade show" style="max-width:100%; max-height:64px; padding:1px 4px" role="alert">
+                        {{ flash_message }}
+                    </div>
+                {% endfor %}
+    <button type="submit" class="btn btn-primary">Registrarse</button>
+{{ form_end(form) }}

@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+{% block title %}CompuConta - Mesa de Ayuda{% endblock %}
+{% block body %}
+    <style>
+        .label{width: 150px}
+    </style>
+    {{ parent() }}
+    <div class="container-fluid">
+        <div class="row">            
+            {% for req in reqs %}
+                <div class="col-4">
+                    <div class="card"  style="margin:50px 50px; width:20rem;">
+                        <div class="card-header">
+                            <h3>Requerimiento {{ req.id }}</h3>
+                        </div>
+                        <div class="card-body">
+                            {% if req.anexo1 %}
+                            {% if req.ext1=='png' or req.ext1=='jpg' %}
+                                <div class="col-12">
+                                    <img style="border: 5px; border-color: #575859" class="d-block w-100" src="{{ 'data:image;base64,'~req.anexo1 }}">
+                                </div>
+                            {% endif %}
+                        {% endif %}
+
+                        {% if req.anexo2 %}
+                            {% if req.ext2=='png' %}
+                                <div class="col-12 my-3">
+                                    <img style="border: 5px; border-color: #575859" class="d-block w-100" src="{{ 'data:image;base64,'~req.anexo2 }}">
+                                </div>
+                            {% endif %}
+                        {% endif %}
+
+                        {% if req.anexo3 %}
+                            {% if req.ext3=='png' %}
+                                <div class="col-12">
+                                    <img style="border: 5px; border-color: #575859" class="d-block w-100" src="{{ 'data:image;base64,'~req.anexo3 }}">
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                        </div>
+                        <div class="card-footer">
+                            pie de pagina
+                        </div>          
+                    </div>
+                </div>
+            {% endfor %}            
+        </div>
+        
+        <div class="list-group-item">
+            <a class="btn btn-primary" href="{{ path('anexos_registrar') }}">Nuevo</a>                    
+        </div>
+    </div>
+{%  endblock %}
+
+
+
+
+
+
