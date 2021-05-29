@@ -1,0 +1,11 @@
+anexos_listar:
+  path: /anexos
+  defaults: {_controller: App\Controller\AnexoController::listar}
+
+anexos_registrar:
+  path: /anexos/registro
+  defaults: {_controller: App\Controller\AnexoController::registro}
+
+anexos_actionRegistrar:
+  path: /anexos/actionRegistrar
+  defaults: {_controller: App\Controller\AnexoController::actionRegistroAnexo}
