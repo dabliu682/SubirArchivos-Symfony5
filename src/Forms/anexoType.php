@@ -9,7 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints\File;
 use function Sodium\add;
 
 class anexoType extends AbstractType
@@ -30,11 +30,14 @@ class anexoType extends AbstractType
                 'constraints' => [
                     new File([
                         'mimeTypes' => [
-                            'application/pdf', 
-                            'application/x-pdf',
-                            'image/png',
-                            'image/jpg',
-                            'image/svg+xml' 
+                            'image/*',
+                            'application/pdf',
+                            'application/msword',
+                            'application/vnd.ms-excel',
+                            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                            'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+                            'text/plain'
                         ],
                         'mimeTypesMessage' => 'Archivo no admitido'
                     ])
