@@ -25,8 +25,8 @@ class anexoType extends AbstractType
 
             ->add('anexo1', FileType::class, [
                 'mapped' => false,
-                'label' => 'archivo',
-                'required' => 'false',
+                'label' => 'Anexo1',
+                'required' => false,
                 'constraints' => [
                     new File([
                         'mimeTypes' => [
@@ -44,8 +44,46 @@ class anexoType extends AbstractType
                 ]            
             ])
 
-            ->add('anexo2', FileType::class, array( 'required' => false))
-            ->add('anexo3', FileType::class, array( 'required' => false));
+            ->add('anexo2', FileType::class, [
+                'mapped' => false,
+                'label' => 'Anexo2',
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'mimeTypes' => [
+                            'image/*',
+                            'application/pdf',
+                            'application/msword',
+                            'application/vnd.ms-excel',
+                            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                            'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+                            'text/plain'
+                        ],
+                        'mimeTypesMessage' => 'Archivo no admitido'
+                    ])
+                ]
+            ])
+            ->add('anexo3', FileType::class, [
+                'mapped' => false,
+                'label' => 'Anexo3',
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'mimeTypes' => [
+                            'image/*',
+                            'application/pdf',
+                            'application/msword',
+                            'application/vnd.ms-excel',
+                            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                            'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+                            'text/plain'
+                        ],
+                        'mimeTypesMessage' => 'Archivo no admitido'
+                    ])
+                ]
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

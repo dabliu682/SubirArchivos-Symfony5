@@ -1,8 +1,110 @@
-{{ form_start(form) }}
-{% for flash_message in app.session.flashbag.get('mensaje') %}
-                    <div class="alert alert-danger alert-dismissible fade show" style="max-width:100%; max-height:64px; padding:1px 4px" role="alert">
-                        {{ flash_message }}
+
+{% extends 'base.html.twig' %}
+{% block title %}CompuConta - Mesa de Ayuda{% endblock %}
+{% block body %}
+    <style>
+        .label{width: 150px}
+    </style>
+    {{ parent() }}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4">
+                    <div class="card"  style="margin:100px 450px; width:30rem;">
+                        <div class="card-header">
+                            <h3>Nuevo Requerimiento</h3>
+                        </div>
+                        <div class="card-body">
+                            {{ form_start(form) }}
+                            {% for flash_message in app.session.flashbag.get('mensaje') %}
+                                <div class="alert alert-danger alert-dismissible fade show" style="max-width:100%; max-height:64px; padding:1px 4px" role="alert">
+                                    {{ flash_message }}
+                                </div>
+                            {% endfor %}
+                            <div class="form-group row">
+                                <div class="col-6">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            {{ form_label(form.fecha,form.fecha, {'label_attr' : {'class' : 'input-group-text' }} ) }}
+                                        </div>
+                                        {{ form_widget(form.fecha, {'attr' : {'class' : 'form-control'}}) }}
+                                        <div class="invalid-feedback">
+                                            <h6 class="font-weight-light">{% for error in form.fecha.vars.errors %}{{ error.message }}
+                                                    <br>{% endfor %}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            {{ form_label(form.hora,form.hora, {'label_attr' : {'class' : 'input-group-text' }} ) }}
+                                        </div>
+                                        {{ form_widget(form.hora, {'attr' : {'class' : 'form-control'}}) }}
+                                        <div class="invalid-feedback">
+                                            <h6 class="font-weight-light">{% for error in form.hora.vars.errors %}{{ error.message }}
+                                                    <br>{% endfor %}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            {{ form_label(form.anexo1,form.anexo1, {'label_attr' : {'class' : 'input-group-text' }} ) }}
+                                        </div>
+                                        {{ form_widget(form.anexo1, {'attr' : {'class' : 'form-control'}}) }}
+                                        <div class="invalid-feedback">
+                                            <h6 class="font-weight-light">{% for error in form.anexo1.vars.errors %}{{ error.message }}
+                                                    <br>{% endfor %}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            {{ form_label(form.anexo2,form.anexo2, {'label_attr' : {'class' : 'input-group-text' }} ) }}
+                                        </div>
+                                        {{ form_widget(form.anexo2, {'attr' : {'class' : 'form-control'}}) }}
+                                        <div class="invalid-feedback">
+                                            <h6 class="font-weight-light">{% for error in form.anexo2.vars.errors %}{{ error.message }}
+                                                    <br>{% endfor %}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            {{ form_label(form.anexo3,form.anexo3, {'label_attr' : {'class' : 'input-group-text' }} ) }}
+                                        </div>
+                                        {{ form_widget(form.anexo3, {'attr' : {'class' : 'form-control'}}) }}
+                                        <div class="invalid-feedback">
+                                            <h6 class="font-weight-light">{% for error in form.anexo3.vars.errors %}{{ error.message }}
+                                                    <br>{% endfor %}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
                     </div>
-                {% endfor %}
-    <button type="submit" class="btn btn-primary">Registrarse</button>
-{{ form_end(form) }}
+                {{ form_end(form) }}
+                </div>
+        </div>
+    </div>
+{%  endblock %}
+
+
+
+
+
+
+
+
+
